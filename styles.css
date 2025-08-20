@@ -547,7 +547,7 @@ h1, h2, h3, h4, h5, h6 {
 .stat-number {
     font-size: 2.5rem;
     font-weight: 800;
-    color: #27ae60;
+    color: var(--accent-green);
     font-family: 'Montserrat', sans-serif;
     line-height: 1;
     margin-bottom: 10px;
@@ -792,7 +792,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .claim-button {
-    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    background: linear-gradient(135deg, var(--accent-green), var(--accent-sage));
     color: white;
     border: none;
     padding: 12px 24px;
@@ -805,7 +805,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .claim-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+    box-shadow: 0 4px 15px rgba(107, 142, 78, 0.3);
 }
 
 /* Donor Recognition */
@@ -846,7 +846,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-badge {
-    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    background: linear-gradient(135deg, var(--accent-green), var(--accent-sage));
     color: white;
     padding: 5px 15px;
     border-radius: 15px;
