@@ -730,7 +730,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .listing-location {
-    color: #666;
+    color: var(--text-secondary);
     margin-bottom: 20px;
 }
 
@@ -784,7 +784,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-name {
     font-size: 1.2rem;
     font-weight: 600;
-    color: #2c3e50;
+    color: var(--text-primary);
     margin-bottom: 10px;
 }
 
@@ -799,7 +799,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-stat {
-    color: #666;
+    color: var(--text-secondary);
     font-size: 0.9rem;
 }
 
@@ -909,7 +909,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .story-description {
-    color: #666;
+    color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 20px;
 }
