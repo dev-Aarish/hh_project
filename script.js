@@ -1,14 +1,14 @@
 // ===============================
 // Supabase Auth Setup
 // ===============================
-const SUPABASE_URL = "https://YOUR-SUPABASE-PROJECT.supabase.co"; // replace
-const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY"; // replace
+const SUPABASE_URL = "https://hkngiplpfipvspampwzv.supabase.co"; // replace
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhrbmdpcGxwZmlwdnNwYW1wd3p2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU3MTYyNDAsImV4cCI6MjA3MTI5MjI0MH0.UY9952vOwz3HkRLYpfW8wnvkhtQECslCFGSMqbrsH7E"; // replace
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // ===============================
 // Backend API
 // ===============================
-const API_BASE = "https://your-backend.repl.co"; // replace with your backend URL
+const API_BASE = "https://FoodFlow.aritro362.repl.co"; // replace with your backend URL
 
 // Get donations
 async function loadDonations() {
