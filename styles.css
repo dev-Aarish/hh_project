@@ -68,7 +68,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
-    color: #2c3e50;
+    color: var(--text-primary);
     position: relative;
 }
 
@@ -191,7 +191,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-link {
     text-decoration: none;
-    color: #333;
+    color: var(--text-primary);
     font-weight: 500;
     font-size: 0.95rem;
     transition: color 0.3s ease;
@@ -381,7 +381,7 @@ h1, h2, h3, h4, h5, h6 {
 /* About Us Section */
 .about-section {
     padding: 100px 0;
-    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+    background: var(--bg-secondary);
 }
 
 .about-content {
@@ -394,7 +394,7 @@ h1, h2, h3, h4, h5, h6 {
 .about-description {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #666;
+    color: var(--text-secondary);
     margin-bottom: 30px;
 }
 
