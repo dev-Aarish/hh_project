@@ -8,6 +8,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// Serve static files (CSS, JS, images)
+app.use(express.static('.'));
+
 // ---------------------- MONGODB CONNECTION ---------------------- //
 mongoose
   .connect(process.env.MONGO_URI)
@@ -38,9 +41,9 @@ const Test = mongoose.model(
 
 // ---------------------- ROUTES ---------------------- //
 
-// Root check
+// Root route - serve homepage
 app.get("/", (req, res) => {
-  res.send("🍽 Food Sharing Backend is running...");
+  res.sendFile(__dirname + "/index.html");
 });
 
 //  Add new food (donor)
