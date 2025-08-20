@@ -314,6 +314,21 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(135deg,
+        rgba(76, 175, 80, 0.9) 0%,
+        rgba(139, 195, 74, 0.8) 50%,
+        rgba(255, 152, 0, 0.9) 100%),
+        linear-gradient(45deg,
+        rgba(46, 125, 50, 0.3),
+        rgba(165, 214, 167, 0.2)),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="50" cy="50" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="150" cy="50" r="2" fill="rgba(255,255,255,0.05)"/><circle cx="100" cy="150" r="4" fill="rgba(255,255,255,0.08)"/><circle cx="25" cy="125" r="2" fill="rgba(255,255,255,0.03)"/><circle cx="175" cy="125" r="3" fill="rgba(255,255,255,0.06)"/></svg>');
+    background-size: 200px, 100%, 200px;
+    animation: heroBackground 20s ease-in-out infinite;
+}
+
+@keyframes heroBackground {
+    0%, 100% { background-position: 0% 0%, 0% 0%, 0px 0px; }
+    50% { background-position: 100% 100%, 0% 0%, 100px 100px; }
 }
 
 .hero-background {
@@ -322,25 +337,24 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     right: 0;
     bottom: 0;
-    display: flex;
+    background:
+        linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.02) 31%, rgba(255,255,255,0.02) 69%, transparent 70%),
+        linear-gradient(-45deg, transparent 30%, rgba(255,255,255,0.02) 31%, rgba(255,255,255,0.02) 69%, transparent 70%);
+    background-size: 60px 60px;
+    animation: backgroundPattern 30s linear infinite;
+}
+
+@keyframes backgroundPattern {
+    0% { background-position: 0px 0px, 30px 30px; }
+    100% { background-position: 60px 60px, 90px 90px; }
 }
 
 .hero-bg-left {
-    flex: 1;
-    background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(230, 126, 34, 0.1)),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="30">🗑️</text></svg>');
-    background-size: 100px;
-    background-repeat: repeat;
-    opacity: 0.1;
+    display: none;
 }
 
 .hero-bg-right {
-    flex: 1;
-    background: linear-gradient(135deg, rgba(39, 174, 96, 0.1), rgba(46, 204, 113, 0.1)),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="30">👪</text></svg>');
-    background-size: 100px;
-    background-repeat: repeat;
-    opacity: 0.1;
+    display: none;
 }
 
 .hero-content {
