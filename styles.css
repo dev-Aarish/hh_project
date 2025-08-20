@@ -457,12 +457,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .value-item h4 {
     font-size: 1.2rem;
-    color: #2c3e50;
+    color: var(--text-primary);
     margin-bottom: 10px;
 }
 
 .value-item p {
-    color: #666;
+    color: var(--text-secondary);
     font-size: 0.95rem;
     line-height: 1.5;
 }
@@ -498,7 +498,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .stat-label {
     font-size: 1rem;
-    color: #666;
+    color: var(--text-secondary);
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -718,7 +718,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .listing-title {
     font-size: 1.3rem;
-    color: #2c3e50;
+    color: var(--text-primary);
     margin-bottom: 15px;
 }
 
