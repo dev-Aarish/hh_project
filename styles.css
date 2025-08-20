@@ -636,7 +636,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .step-card:hover {
     transform: translateY(-10px);
-    border-color: #27ae60;
+    border-color: var(--accent-green);
 }
 
 .step-icon {
@@ -676,7 +676,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .demo-button {
-    background: linear-gradient(135deg, #f39c12, #e67e22);
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-brown));
     color: white;
     border: none;
     padding: 16px 32px;
@@ -685,12 +685,12 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+    box-shadow: 0 4px 15px rgba(212, 121, 58, 0.3);
 }
 
 .demo-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+    box-shadow: 0 6px 20px rgba(212, 121, 58, 0.4);
 }
 
 /* Why This Matters */
@@ -759,7 +759,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 20px;
     padding: 30px;
     box-shadow: 0 10px 30px var(--shadow);
-    border-left: 5px solid #f39c12;
+    border-left: 5px solid var(--accent-orange);
     transition: all 0.3s ease;
 }
 
