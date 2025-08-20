@@ -1152,6 +1152,19 @@ h1, h2, h3, h4, h5, h6 {
         display: flex;
     }
 
+    .theme-toggle {
+        margin-left: 10px;
+        order: -1;
+    }
+
+    .theme-toggle-btn {
+        padding: 6px 10px;
+    }
+
+    .theme-icon {
+        font-size: 1rem;
+    }
+
     .hero-headline {
         font-size: 2.5rem;
     }
