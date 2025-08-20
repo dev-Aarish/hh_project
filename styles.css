@@ -127,6 +127,11 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.9rem;
 }
 
+[data-theme="dark"] .top-bar {
+    background: #0f0f0f;
+    border-bottom: 1px solid var(--border-color);
+}
+
 .top-bar .container {
     display: flex;
     justify-content: space-between;
@@ -964,7 +969,7 @@ h1, h2, h3, h4, h5, h6 {
     right: 0;
     bottom: 0;
     background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(39, 174, 96, 0.9)),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="20">👨‍👩‍👧‍👦</text></svg>');
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="20">👨‍👩‍����‍👦</text></svg>');
     background-size: 150px;
     background-repeat: repeat;
     opacity: 0.1;
