@@ -237,46 +237,59 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(-1px);
 }
 
-/* Theme Toggle in Top Bar */
+/* Header Controls */
+.header-controls {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+/* Theme Toggle in Header */
 .theme-toggle-btn {
-    background: none;
-    border: none;
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 25px;
     cursor: pointer;
-    margin-left: 15px;
-    padding: 0;
+    padding: 8px 12px;
     position: relative;
     transition: all 0.3s ease;
     font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    box-shadow: 0 2px 8px var(--shadow);
 }
 
 .theme-toggle-btn:hover {
-    transform: scale(1.2);
+    border-color: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-hover);
 }
 
 .theme-toggle-btn:active {
-    transform: scale(0.9);
+    transform: translateY(0);
 }
 
 .theme-icon {
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     position: absolute;
-    top: 0;
-    left: 0;
 }
 
 .dark-icon {
     opacity: 0;
-    transform: rotate(-180deg);
+    transform: rotate(-180deg) scale(0.5);
 }
 
 [data-theme="dark"] .light-icon {
     opacity: 0;
-    transform: rotate(180deg);
+    transform: rotate(180deg) scale(0.5);
 }
 
 [data-theme="dark"] .dark-icon {
     opacity: 1;
-    transform: rotate(0deg);
+    transform: rotate(0deg) scale(1);
 }
 
 .mobile-menu-toggle {
