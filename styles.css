@@ -17,18 +17,18 @@
 
 [data-theme="dark"] {
     /* Dark theme variables */
-    --bg-primary: #1a1a1a;
-    --bg-secondary: #2d2d2d;
-    --bg-tertiary: #3a3a3a;
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --bg-tertiary: #2a2a2a;
     --text-primary: #ffffff;
-    --text-secondary: #cccccc;
-    --text-muted: #888888;
-    --border-color: rgba(255, 255, 255, 0.1);
-    --card-bg: #2d2d2d;
-    --header-bg: rgba(26, 26, 26, 0.95);
-    --footer-bg: #1a1a1a;
-    --shadow: rgba(0, 0, 0, 0.3);
-    --shadow-hover: rgba(0, 0, 0, 0.4);
+    --text-secondary: #e0e0e0;
+    --text-muted: #b0b0b0;
+    --border-color: rgba(255, 255, 255, 0.15);
+    --card-bg: #1e1e1e;
+    --header-bg: rgba(18, 18, 18, 0.95);
+    --footer-bg: #0f0f0f;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --shadow-hover: rgba(0, 0, 0, 0.7);
 }
 
 /* Reset and Base Styles */
@@ -312,7 +312,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-bg-left {
     flex: 1;
     background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(230, 126, 34, 0.1)),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="30">🗑️</text></svg>');
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="30">��️</text></svg>');
     background-size: 100px;
     background-repeat: repeat;
     opacity: 0.1;
