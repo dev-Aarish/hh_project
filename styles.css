@@ -232,60 +232,46 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(-1px);
 }
 
-/* Floating Theme Toggle */
-.floating-theme-toggle {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 1000;
-}
-
+/* Theme Toggle in Top Bar */
 .theme-toggle-btn {
-    background: var(--card-bg);
-    border: 2px solid var(--border-color);
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    background: none;
+    border: none;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+    margin-left: 15px;
+    padding: 0;
     position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 20px var(--shadow);
-    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
 }
 
 .theme-toggle-btn:hover {
-    border-color: #27ae60;
-    transform: scale(1.1);
-    box-shadow: 0 6px 25px var(--shadow-hover);
+    transform: scale(1.2);
 }
 
 .theme-toggle-btn:active {
-    transform: scale(0.95);
+    transform: scale(0.9);
 }
 
 .theme-icon {
-    font-size: 1.5rem;
     transition: all 0.3s ease;
     position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .dark-icon {
     opacity: 0;
-    transform: rotate(-90deg) scale(0.5);
+    transform: rotate(-180deg);
 }
 
 [data-theme="dark"] .light-icon {
     opacity: 0;
-    transform: rotate(90deg) scale(0.5);
+    transform: rotate(180deg);
 }
 
 [data-theme="dark"] .dark-icon {
     opacity: 1;
-    transform: rotate(0deg) scale(1);
+    transform: rotate(0deg);
 }
 
 .mobile-menu-toggle {
@@ -978,7 +964,7 @@ h1, h2, h3, h4, h5, h6 {
     right: 0;
     bottom: 0;
     background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(39, 174, 96, 0.9)),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="20">👨‍👩‍👧‍👦</text></svg>');
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="20">👨‍👩‍👧‍����</text></svg>');
     background-size: 150px;
     background-repeat: repeat;
     opacity: 0.1;
