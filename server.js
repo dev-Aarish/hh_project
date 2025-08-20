@@ -8,6 +8,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// Serve static files (CSS, JS, images)
+app.use(express.static('.'));
+
 // ---------------------- MONGODB CONNECTION ---------------------- //
 mongoose
   .connect(process.env.MONGO_URI)
