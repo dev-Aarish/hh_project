@@ -41,9 +41,9 @@ const Test = mongoose.model(
 
 // ---------------------- ROUTES ---------------------- //
 
-// Root check
+// Root route - serve homepage
 app.get("/", (req, res) => {
-  res.send("🍽 Food Sharing Backend is running...");
+  res.sendFile(__dirname + "/index.html");
 });
 
 //  Add new food (donor)
