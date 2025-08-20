@@ -1026,6 +1026,15 @@ h1, h2, h3, h4, h5, h6 {
         gap: 30px;
         text-align: center;
     }
+
+    .hero-background {
+        flex-direction: column;
+    }
+
+    .hero-bg-left,
+    .hero-bg-right {
+        height: 50vh;
+    }
 }
 
 @media (max-width: 480px) {
