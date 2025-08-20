@@ -1,18 +1,22 @@
 /* CSS Variables for Theming */
 :root {
-    /* Light theme variables */
-    --bg-primary: #ffffff;
-    --bg-secondary: #f8f9fa;
-    --bg-tertiary: #e9ecef;
-    --text-primary: #333333;
-    --text-secondary: #666666;
-    --text-muted: #999999;
-    --border-color: rgba(0, 0, 0, 0.1);
+    /* Light theme variables - Earthy, Sustainable Palette */
+    --bg-primary: #fefefe;
+    --bg-secondary: #f7f8f5;
+    --bg-tertiary: #ede7da;
+    --text-primary: #2d3423;
+    --text-secondary: #5a6147;
+    --text-muted: #8a8b7a;
+    --border-color: rgba(139, 154, 108, 0.2);
     --card-bg: #ffffff;
     --header-bg: rgba(255, 255, 255, 0.95);
-    --footer-bg: #2c3e50;
-    --shadow: rgba(0, 0, 0, 0.1);
-    --shadow-hover: rgba(0, 0, 0, 0.15);
+    --footer-bg: #3e4a2d;
+    --shadow: rgba(77, 93, 58, 0.12);
+    --shadow-hover: rgba(77, 93, 58, 0.18);
+    --accent-green: #6b8e4e;
+    --accent-orange: #d4793a;
+    --accent-brown: #8b5d33;
+    --accent-sage: #9cae7a;
 }
 
 [data-theme="dark"] {
