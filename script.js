@@ -523,6 +523,71 @@ function updateCounters(data) {
     });
 }
 
+// Theme Toggle Functionality
+function initThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    // Check for saved theme preference or default to light mode
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    body.setAttribute('data-theme', savedTheme);
+
+    // Update toggle button state based on current theme
+    updateToggleButton(savedTheme);
+
+    themeToggle.addEventListener('click', function() {
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        // Update theme
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+
+        // Update button appearance
+        updateToggleButton(newTheme);
+
+        // Show notification
+        const message = newTheme === 'dark' ? '🌙 Dark mode activated' : '☀️ Light mode activated';
+        showNotification(message, 'info');
+    });
+}
+
+function updateToggleButton(theme) {
+    const lightIcon = document.querySelector('.light-icon');
+    const darkIcon = document.querySelector('.dark-icon');
+
+    if (theme === 'dark') {
+        lightIcon.style.opacity = '0';
+        lightIcon.style.transform = 'translateX(20px)';
+        darkIcon.style.opacity = '1';
+        darkIcon.style.transform = 'translateX(0)';
+    } else {
+        lightIcon.style.opacity = '1';
+        lightIcon.style.transform = 'translateX(0)';
+        darkIcon.style.opacity = '0';
+        darkIcon.style.transform = 'translateX(-20px)';
+    }
+}
+
+// Auto-detect system theme preference
+function detectSystemTheme() {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+    }
+    return 'light';
+}
+
+// Listen for system theme changes
+if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+        if (!localStorage.getItem('theme')) {
+            const newTheme = e.matches ? 'dark' : 'light';
+            document.body.setAttribute('data-theme', newTheme);
+            updateToggleButton(newTheme);
+        }
+    });
+}
+
 // Initialize dashboard data fetch
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(fetchDashboardData, 1000);
