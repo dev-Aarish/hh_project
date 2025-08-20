@@ -20,19 +20,23 @@
 }
 
 [data-theme="dark"] {
-    /* Dark theme variables */
-    --bg-primary: #121212;
-    --bg-secondary: #1e1e1e;
-    --bg-tertiary: #2a2a2a;
-    --text-primary: #ffffff;
-    --text-secondary: #e0e0e0;
-    --text-muted: #b0b0b0;
-    --border-color: rgba(255, 255, 255, 0.15);
-    --card-bg: #1e1e1e;
-    --header-bg: rgba(18, 18, 18, 0.95);
-    --footer-bg: #0f0f0f;
-    --shadow: rgba(0, 0, 0, 0.5);
-    --shadow-hover: rgba(0, 0, 0, 0.7);
+    /* Dark theme variables - Earthy Night Palette */
+    --bg-primary: #1a1f15;
+    --bg-secondary: #242b1e;
+    --bg-tertiary: #2f3729;
+    --text-primary: #f4f6f0;
+    --text-secondary: #d4d8cc;
+    --text-muted: #a8b09e;
+    --border-color: rgba(188, 201, 159, 0.15);
+    --card-bg: #242b1e;
+    --header-bg: rgba(26, 31, 21, 0.95);
+    --footer-bg: #151a11;
+    --shadow: rgba(0, 0, 0, 0.6);
+    --shadow-hover: rgba(0, 0, 0, 0.8);
+    --accent-green: #8fb86f;
+    --accent-orange: #e69850;
+    --accent-brown: #b87d52;
+    --accent-sage: #b5c79a;
 }
 
 /* Reset and Base Styles */
