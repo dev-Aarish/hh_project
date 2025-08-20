@@ -752,11 +752,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-card {
-    background: white;
+    background: var(--card-bg);
     text-align: center;
     padding: 30px 20px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px var(--shadow);
     transition: transform 0.3s ease;
 }
 
@@ -862,7 +862,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Success Stories */
 .success-stories-section {
     padding: 100px 0;
-    background: #f8f9fa;
+    background: var(--bg-secondary);
 }
 
 .stories-carousel {
@@ -875,9 +875,9 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
     text-align: center;
     padding: 40px;
-    background: white;
+    background: var(--card-bg);
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px var(--shadow);
 }
 
 .story-slide.active {
@@ -1005,7 +1005,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Footer */
 .footer {
-    background: #2c3e50;
+    background: var(--footer-bg);
     color: white;
     padding: 60px 0 20px;
 }
