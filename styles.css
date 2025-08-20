@@ -85,7 +85,7 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
     width: 60px;
     height: 4px;
-    background: linear-gradient(135deg, #27ae60, #f39c12);
+    background: linear-gradient(135deg, var(--accent-green), var(--accent-orange));
     margin: 1rem auto;
     border-radius: 2px;
 }
@@ -222,7 +222,7 @@ h1, h2, h3, h4, h5, h6 {
 .logo-placeholder {
     font-size: 1.8rem;
     font-weight: 800;
-    color: #27ae60;
+    color: var(--accent-green);
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -244,7 +244,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-link:hover,
 .nav-link.active {
-    color: #27ae60;
+    color: var(--accent-green);
 }
 
 .nav-link::after {
@@ -254,7 +254,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 0;
     height: 2px;
-    background: #27ae60;
+    background: var(--accent-green);
     transition: width 0.3s ease;
 }
 
