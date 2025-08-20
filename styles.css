@@ -142,12 +142,19 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: 20px;
 }
 
+.social-icons {
+    display: flex;
+    align-items: center;
+}
+
 .social-icons a {
     color: white;
     text-decoration: none;
     margin-left: 15px;
     font-size: 1.1rem;
     transition: opacity 0.3s ease;
+    display: inline-flex;
+    align-items: center;
 }
 
 .social-icons a:hover {
