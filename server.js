@@ -1,121 +1,204 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-require("dotenv").config();
+// ------------------------------
+// Food Donation API (Express + Supabase)
+// ------------------------------
 
-// ---------------------- INITIALIZE APP ---------------------- //
-const app = express();
-app.use(express.json());
-app.use(cors());
+const express = require('express');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const { createClient } = require('@supabase/supabase-js');
 
-// Serve static files (CSS, JS, images)
-app.use(express.static('.'));
+// Load environment variables
+dotenv.config();
 
-// ---------------------- MONGODB CONNECTION ---------------------- //
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("Connected to MongoDB"))
-  .catch((err) => console.error("Error Connecting:", err));
-
-// ---------------------- SCHEMAS & MODELS ---------------------- //
-const foodSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  category: { type: String, required: true },
-  quantity: { type: Number, required: true, min: 1 },
-  pickupLocation: { type: String, required: true },
-  expiryTime: { type: Date, required: true },
-  claimedBy: { type: String, default: null }, // receiver info
-  createdAt: { type: Date, default: Date.now }
-});
-
-const Food = mongoose.model("Food", foodSchema);
-
-// Small test schema (for /test-insert)
-const Test = mongoose.model(
-  "Test",
-  new mongoose.Schema({
-    name: String,
-    time: Date
-  })
+// Initialize Supabase client
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
-// ---------------------- ROUTES ---------------------- //
-
-// Root route - serve homepage
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-});
-
-//  Add new food (donor)
-app.post("/food", async (req, res) => {
-  try {
-    const { name, category, quantity, pickupLocation, expiryTime } = req.body;
-    const food = new Food({ name, category, quantity, pickupLocation, expiryTime });
-    await food.save();
-    res.status(201).json({ message: "Food added successfully", food });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
-//  Get available food (hide expired automatically)
-app.get("/food", async (req, res) => {
-  try {
-    const now = new Date();
-    const foods = await Food.find({
-      expiryTime: { $gt: now },
-      claimedBy: null
-    });
-    res.json(foods);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
-//  Claim food (receiver takes it)
-app.post("/food/:id/claim", async (req, res) => {
-  try {
-    const { receiverName } = req.body;
-    const food = await Food.findOneAndUpdate(
-      { _id: req.params.id, claimedBy: null },
-      { $set: { claimedBy: receiverName } },
-      { new: true }
-    );
-    if (!food) return res.status(404).json({ message: "Food not available" });
-    res.json({ message: "Food claimed successfully", food });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
-//  Dashboard stats
-app.get("/dashboard", async (req, res) => {
-  try {
-    const totalFood = await Food.countDocuments();
-    const savedFood = await Food.countDocuments({ claimedBy: { $ne: null } });
-
-    res.json({
-      totalFood,
-      savedFood,
-      peopleFed: savedFood, // simple 1 food = 1 person assumption
-      waterSaved: savedFood * 100 // arbitrary metric
-    });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
-// ---------------------- TEST ROUTE ---------------------- //
-app.get("/test-insert", async (req, res) => {
-  try {
-    const doc = new Test({ name: "Aritro", time: new Date() });
-    await doc.save();
-    res.send(`Inserted with ID: ${doc._id}`);
-  } catch (err) {
-    res.status(500).send("Error: " + err.message);
-  }
-});
-
-// ---------------------- SERVER ---------------------- //
+const app = express();
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server is running on port ${PORT}`));
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+// ------------------------------
+// ROUTES
+// ------------------------------
+
+// GET /donations - fetch available donations
+app.get('/donations', async (req, res) => {
+  try {
+    const { data: donations, error } = await supabase
+      .from('donations')
+      .select(`
+        id,
+        title,
+        description,
+        expiry_time,
+        donor_id,
+        category,
+        quantity,
+        unit,
+        status,
+        created_at
+      `)
+      .eq('status', 'available')
+      .gt('expiry_time', new Date().toISOString())
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      console.error('Supabase error:', error);
+      return res.status(400).json({ success: false, error: error.message });
+    }
+
+    res.json({ success: true, data: donations, count: donations?.length || 0 });
+  } catch (error) {
+    console.error('Error fetching donations:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Failed to fetch donations',
+      message: error.message,
+    });
+  }
+});
+
+// POST /donations - add a new donation
+app.post('/donations', async (req, res) => {
+  const { title, description, expiry_time, donor_id, category, quantity, unit } = req.body;
+
+  if (!title || !donor_id || !expiry_time) {
+    return res.status(400).json({
+      success: false,
+      error: 'title, donor_id, and expiry_time are required',
+    });
+  }
+
+  try {
+    const { data, error } = await supabase
+      .from('donations')
+      .insert([{
+        title,
+        description,
+        expiry_time,
+        donor_id,
+        category,
+        quantity,
+        unit,
+        status: 'available',
+        created_at: new Date().toISOString(),
+      }])
+      .select()
+      .single();
+
+    if (error) {
+      return res.status(500).json({
+        success: false,
+        error: 'Failed to create donation',
+        message: error.message,
+      });
+    }
+
+    res.status(201).json({
+      success: true,
+      data,
+      message: 'Donation created successfully',
+    });
+  } catch (error) {
+    console.error('Error creating donation:', error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+// POST /donations/:id/claim - claim a donation
+app.post('/donations/:id/claim', async (req, res) => {
+  const { id } = req.params;
+  const { claimer_id, requested_quantity, message } = req.body;
+
+  if (!claimer_id) {
+    return res.status(400).json({ success: false, error: 'claimer_id is required' });
+  }
+
+  try {
+    // 1. Check donation
+    const { data: donation, error: donationError } = await supabase
+      .from('donations')
+      .select('*')
+      .eq('id', id)
+      .single();
+
+    if (donationError || !donation) {
+      return res.status(404).json({ success: false, error: 'Donation not found' });
+    }
+
+    if (donation.status !== 'available') {
+      return res.status(400).json({ success: false, error: 'Donation no longer available' });
+    }
+
+    // 2. Check claimer
+    const { data: claimer, error: claimerError } = await supabase
+      .from('users') // ⚠️ Make sure your table is called 'users'
+      .select('*')
+      .eq('id', claimer_id)
+      .single();
+
+    if (claimerError || !claimer) {
+      return res.status(400).json({ success: false, error: 'Claimer not found' });
+    }
+
+    // 3. Check if already claimed
+    const { data: existingClaim } = await supabase
+      .from('claims')
+      .select('*')
+      .eq('listingId', id)
+      .eq('recipientId', claimer_id)
+      .maybeSingle();
+
+    if (existingClaim) {
+      return res.status(400).json({ success: false, error: 'Already claimed this donation' });
+    }
+
+    // 4. Create claim
+    const { data: newClaim, error: claimError } = await supabase
+      .from('claims')
+      .insert([{
+        listingId: id,
+        recipientId: claimer_id,
+        requestedQuantity: requested_quantity || donation.quantity,
+        message: message || null,
+        status: 'pending',
+      }])
+      .select()
+      .single();
+
+    if (claimError) {
+      return res.status(500).json({ success: false, error: claimError.message });
+    }
+
+    res.status(201).json({ success: true, data: newClaim, message: 'Claim created successfully' });
+  } catch (error) {
+    console.error('Error creating claim:', error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+// Health check
+app.get('/health', (req, res) => {
+  res.json({
+    success: true,
+    message: 'Food Donation API is running',
+    timestamp: new Date().toISOString(),
+  });
+});
+
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({ success: false, error: 'Route not found' });
+});
+
+// Start server
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`📡 Health: http://localhost:${PORT}/health`);
+});
