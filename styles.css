@@ -605,8 +605,29 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Impact Counters */
 .impact-section {
-    padding: 80px 0;
+    padding: 120px 0;
     background: var(--bg-secondary);
+    position: relative;
+}
+
+.impact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(180deg, var(--bg-primary), var(--bg-secondary));
+}
+
+.impact-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(180deg, var(--bg-secondary), var(--bg-primary));
 }
 
 .impact-counters {
