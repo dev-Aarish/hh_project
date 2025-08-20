@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScroll();
     initHeaderScroll();
     initMobileMenu();
+    initThemeToggle();
 });
 
 // Scroll Animations
