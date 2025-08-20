@@ -428,9 +428,9 @@ h1, h2, h3, h4, h5, h6 {
 .value-item {
     text-align: center;
     padding: 25px;
-    background: white;
+    background: var(--card-bg);
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px var(--shadow);
     transition: transform 0.3s ease;
 }
 
@@ -464,9 +464,9 @@ h1, h2, h3, h4, h5, h6 {
 .stat-item {
     text-align: center;
     padding: 30px 20px;
-    background: white;
+    background: var(--card-bg);
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px var(--shadow);
     border-left: 4px solid #27ae60;
     transition: transform 0.3s ease;
 }
@@ -506,10 +506,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .counter-item {
-    background: white;
+    background: var(--card-bg);
     padding: 40px 20px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px var(--shadow);
     transition: transform 0.3s ease;
 }
 
@@ -558,8 +558,8 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     padding: 40px 20px;
     border-radius: 20px;
-    background: white;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background: var(--card-bg);
+    box-shadow: 0 10px 30px var(--shadow);
     position: relative;
     transition: all 0.3s ease;
     border: 2px solid transparent;
