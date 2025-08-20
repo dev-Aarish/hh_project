@@ -38,6 +38,9 @@
             </div>
             <nav class="navigation">
                 <ul class="nav-menu">
+                    <li><a href="#" class="nav-link login-btn" id="openLogin">Login</a></li>
+                    <li><a href="#" class="nav-link signup-btn" id="openSignup">Sign Up</a></li>
+
                     <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#about" class="nav-link">About Us</a></li>
                     <li><a href="#listings" class="nav-link">Live Listings</a></li>
@@ -381,6 +384,36 @@
         </div>
     </footer>
 
+    <!-- Login Modal -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeLogin">&times;</span>
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="Email" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <p id="loginMessage"></p>
+  </div>
+</div>
+
+<!-- Signup Modal -->
+<div id="signupModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeSignup">&times;</span>
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+      <input type="text" id="signupName" placeholder="Full Name" required>
+      <input type="email" id="signupEmail" placeholder="Email" required>
+      <input type="password" id="signupPassword" placeholder="Password" required>
+      <button type="submit">Sign Up</button>
+    </form>
+    <p id="signupMessage"></p>
+  </div>
+</div>
+
+    
     <script src="script.js"></script>
 </body>
 </html>
