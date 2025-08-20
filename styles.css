@@ -151,7 +151,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Header */
 .header {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--header-bg);
     backdrop-filter: blur(10px);
     padding: 15px 0;
     position: fixed;
@@ -160,13 +160,13 @@ h1, h2, h3, h4, h5, h6 {
     right: 0;
     z-index: 1000;
     transition: all 0.3s ease;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .header.scrolled {
     top: 0;
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    background: var(--header-bg);
+    box-shadow: 0 2px 20px var(--shadow);
 }
 
 .header .container {
