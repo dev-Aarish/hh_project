@@ -1131,6 +1131,16 @@ h1, h2, h3, h4, h5, h6 {
         gap: 20px;
     }
 
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-values {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
     .closing-headline {
         font-size: 2rem;
     }
