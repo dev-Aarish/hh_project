@@ -495,7 +495,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Impact Counters */
 .impact-section {
     padding: 80px 0;
-    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    background: var(--bg-secondary);
 }
 
 .impact-counters {
@@ -627,7 +627,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Why This Matters */
 .why-matters-section {
     padding: 100px 0;
-    background: #f8f9fa;
+    background: var(--bg-secondary);
 }
 
 .why-matters-content {
@@ -686,10 +686,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .listing-card {
-    background: white;
+    background: var(--card-bg);
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px var(--shadow);
     border-left: 5px solid #f39c12;
     transition: all 0.3s ease;
 }
@@ -742,7 +742,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Donor Recognition */
 .donor-recognition-section {
     padding: 100px 0;
-    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    background: var(--bg-secondary);
 }
 
 .heroes-grid {
