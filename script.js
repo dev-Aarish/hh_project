@@ -1,3 +1,170 @@
+// ===============================
+// Supabase Auth Setup
+// ===============================
+const SUPABASE_URL = "https://YOUR-SUPABASE-PROJECT.supabase.co"; // replace
+const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY"; // replace
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// ===============================
+// Backend API
+// ===============================
+const API_BASE = "https://your-backend.repl.co"; // replace with your backend URL
+
+// Get donations
+async function loadDonations() {
+    try {
+        const res = await fetch(`${API_BASE}/donations`);
+        const result = await res.json();
+
+        if (result.success) {
+            console.log("Donations:", result.data);
+            renderDonations(result.data);
+        } else {
+            showNotification(`⚠️ ${result.error}`, "error");
+        }
+    } catch (err) {
+        showNotification("🚨 Failed to load donations", "error");
+        console.error(err);
+    }
+}
+
+// Create donation
+async function createDonation(title, description, expiry_time, category, quantity, unit) {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) return showNotification("⚠️ You must be logged in", "error");
+
+    const res = await fetch(`${API_BASE}/donations`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${session.access_token}`
+        },
+        body: JSON.stringify({
+            title, description, expiry_time, category, quantity, unit,
+            donor_id: session.user.id
+        })
+    });
+
+    const result = await res.json();
+    if (result.success) {
+        showNotification("🎉 Donation created!", "success");
+        loadDonations();
+    } else {
+        showNotification(`⚠️ ${result.error}`, "error");
+    }
+}
+
+// Claim donation
+async function claimDonation(id, requestedQuantity, message) {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) return showNotification("⚠️ You must be logged in", "error");
+
+    const res = await fetch(`${API_BASE}/donations/${id}/claim`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${session.access_token}`
+        },
+        body: JSON.stringify({
+            claimer_id: session.user.id,
+            requested_quantity: requestedQuantity,
+            message
+        })
+    });
+
+    const result = await res.json();
+    if (result.success) {
+        showNotification("✅ Donation claimed!", "success");
+        loadDonations();
+    } else {
+        showNotification(`⚠️ ${result.error}`, "error");
+    }
+}
+
+// Render donations into DOM
+function renderDonations(donations) {
+    const container = document.getElementById("donations-container");
+    if (!container) return;
+    container.innerHTML = "";
+    donations.forEach(d => {
+        const card = document.createElement("div");
+        card.className = "listing-card";
+        card.innerHTML = `
+            <h3>${d.title}</h3>
+            <p>${d.description || ""}</p>
+            <small>Expires: ${new Date(d.expiry_time).toLocaleString()}</small>
+            <button onclick="claimDonation('${d.id}', 1, 'I want this!')">Claim</button>
+        `;
+        container.appendChild(card);
+    });
+}
+
+// ===============================
+// Notifications
+// ===============================
+function showNotification(msg, type="info") {
+    const box = document.createElement("div");
+    box.className = `notification ${type}`;
+    box.innerText = msg;
+    document.body.appendChild(box);
+    setTimeout(() => box.remove(), 3000);
+}
+
+
+// ===============================
+// Auth Functions
+// ===============================
+async function signUp() {
+  const email = document.getElementById("auth-email").value;
+  const password = document.getElementById("auth-password").value;
+  const { error } = await supabase.auth.signUp({ email, password });
+  if (error) return showNotification(`⚠️ ${error.message}`, "error");
+  showNotification("✅ Signup successful! Please check your email.", "success");
+}
+
+async function signIn() {
+  const email = document.getElementById("auth-email").value;
+  const password = document.getElementById("auth-password").value;
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+  if (error) return showNotification(`⚠️ ${error.message}`, "error");
+  showNotification("🎉 Logged in!", "success");
+  updateAuthUI(data.user);
+}
+
+async function signOut() {
+  const { error } = await supabase.auth.signOut();
+  if (error) return showNotification(`⚠️ ${error.message}`, "error");
+  showNotification("👋 Logged out!", "info");
+  updateAuthUI(null);
+}
+
+// Update UI when login state changes
+function updateAuthUI(user) {
+  const forms = document.getElementById("auth-forms");
+  const loggedIn = document.getElementById("auth-loggedin");
+  const userLabel = document.getElementById("auth-user");
+
+  if (user) {
+    forms.style.display = "none";
+    loggedIn.style.display = "block";
+    userLabel.textContent = `Logged in as: ${user.email}`;
+  } else {
+    forms.style.display = "block";
+    loggedIn.style.display = "none";
+  }
+}
+
+// On page load, check session
+supabase.auth.getSession().then(({ data }) => {
+  updateAuthUI(data.session?.user || null);
+});
+
+// Listen for login/logout automatically
+supabase.auth.onAuthStateChange((event, session) => {
+  updateAuthUI(session?.user || null);
+});
+
+
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality
