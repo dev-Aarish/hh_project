@@ -264,7 +264,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .login-btn {
-    background: #f39c12;
+    background: var(--accent-orange);
     color: white !important;
     padding: 8px 20px;
     border-radius: 25px;
@@ -272,7 +272,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .login-btn:hover {
-    background: #e67e22;
+    background: var(--accent-brown);
     transform: translateY(-1px);
 }
 
@@ -594,7 +594,7 @@ h1, h2, h3, h4, h5, h6 {
 .counter-number {
     font-size: 3rem;
     font-weight: 800;
-    color: #27ae60;
+    color: var(--accent-green);
     margin-bottom: 10px;
     font-family: 'Montserrat', sans-serif;
 }
@@ -650,7 +650,7 @@ h1, h2, h3, h4, h5, h6 {
     right: 20px;
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    background: linear-gradient(135deg, var(--accent-green), var(--accent-sage));
     color: white;
     border-radius: 50%;
     display: flex;
