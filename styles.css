@@ -232,48 +232,60 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(-1px);
 }
 
-/* Theme Toggle */
-.theme-toggle {
-    margin-left: 20px;
+/* Floating Theme Toggle */
+.floating-theme-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
 }
 
 .theme-toggle-btn {
-    background: none;
+    background: var(--card-bg);
     border: 2px solid var(--border-color);
-    border-radius: 50px;
-    padding: 8px 12px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 5px;
+    justify-content: center;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 20px var(--shadow);
+    backdrop-filter: blur(10px);
 }
 
 .theme-toggle-btn:hover {
     border-color: #27ae60;
-    transform: scale(1.05);
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px var(--shadow-hover);
+}
+
+.theme-toggle-btn:active {
+    transform: scale(0.95);
 }
 
 .theme-icon {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     transition: all 0.3s ease;
+    position: absolute;
 }
 
 .dark-icon {
     opacity: 0;
-    transform: translateX(-20px);
+    transform: rotate(-90deg) scale(0.5);
 }
 
 [data-theme="dark"] .light-icon {
     opacity: 0;
-    transform: translateX(20px);
+    transform: rotate(90deg) scale(0.5);
 }
 
 [data-theme="dark"] .dark-icon {
     opacity: 1;
-    transform: translateX(0);
+    transform: rotate(0deg) scale(1);
 }
 
 .mobile-menu-toggle {
@@ -312,7 +324,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-bg-left {
     flex: 1;
     background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(230, 126, 34, 0.1)),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="30">��️</text></svg>');
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="30">����️</text></svg>');
     background-size: 100px;
     background-repeat: repeat;
     opacity: 0.1;
