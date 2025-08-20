@@ -676,7 +676,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* How It Works */
 .how-it-works-section {
-    padding: 100px 0;
+    padding: 120px 0;
+    background: var(--bg-primary);
 }
 
 .steps-container {
@@ -758,8 +759,29 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Why This Matters */
 .why-matters-section {
-    padding: 100px 0;
+    padding: 120px 0;
     background: var(--bg-secondary);
+    position: relative;
+}
+
+.why-matters-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(180deg, var(--bg-primary), var(--bg-secondary));
+}
+
+.why-matters-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(180deg, var(--bg-secondary), var(--bg-primary));
 }
 
 .why-matters-content {
@@ -808,7 +830,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Live Listings */
 .live-listings-section {
-    padding: 100px 0;
+    padding: 120px 0;
+    background: var(--bg-primary);
 }
 
 .listings-grid {
@@ -873,8 +896,29 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Donor Recognition */
 .donor-recognition-section {
-    padding: 100px 0;
+    padding: 120px 0;
     background: var(--bg-secondary);
+    position: relative;
+}
+
+.donor-recognition-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(180deg, var(--bg-primary), var(--bg-secondary));
+}
+
+.donor-recognition-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(180deg, var(--bg-secondary), var(--bg-primary));
 }
 
 .heroes-grid {
