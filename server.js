@@ -1,12 +1,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const path = require("path");
 require("dotenv").config();
 
 // ---------------------- INITIALIZE APP ---------------------- //
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+// Serve static files from the public directory
+app.use(express.static('public'));
 
 // ---------------------- MONGODB CONNECTION ---------------------- //
 mongoose
@@ -38,9 +42,9 @@ const Test = mongoose.model(
 
 // ---------------------- ROUTES ---------------------- //
 
-// Root check
+// Root route - serve the EcoWaste frontend
 app.get("/", (req, res) => {
-  res.send("🍽 Food Sharing Backend is running...");
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 //  Add new food (donor)
