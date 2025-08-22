@@ -524,29 +524,98 @@ function toggleFAQ(element) {
     }
 }
 
-// Update impact metrics dynamically (simulate real data)
-function updateMetrics() {
-    const metrics = {
-        cities: Math.floor(Math.random() * 50) + 10,
-        partners: Math.floor(Math.random() * 500) + 100,
-        users: Math.floor(Math.random() * 5000) + 1000,
-        meals: Math.floor(Math.random() * 50000) + 10000,
-        people: Math.floor(Math.random() * 30000) + 8000,
-        water: Math.floor(Math.random() * 100000) + 25000
-    };
-    
+// Auto-incrementing metrics with specific timing
+let metricsData = {
+    cities: 12,        // Start with base values
+    partners: 150,
+    users: 2450,
+    meals: 15000,
+    people: 12500,
+    water: 35000
+};
+
+let metricsIntervals = {};
+
+function initializeMetrics() {
     const metricElements = $$('.metric-number');
     const metricKeys = ['cities', 'partners', 'users', 'meals', 'people', 'water'];
-    
+
+    // Set initial values
     metricElements.forEach((element, index) => {
         if (metricKeys[index]) {
-            element.setAttribute('data-target', metrics[metricKeys[index]]);
+            element.textContent = metricsData[metricKeys[index]].toLocaleString();
         }
     });
 }
 
-// Initialize metrics update
-setTimeout(updateMetrics, 1000);
+function startAutoIncrementMetrics() {
+    const metricElements = $$('.metric-number');
+    const metricKeys = ['cities', 'partners', 'users', 'meals', 'people', 'water'];
+
+    // Clear any existing intervals
+    Object.values(metricsIntervals).forEach(interval => clearInterval(interval));
+
+    // Cities: +1 every 60 seconds
+    metricsIntervals.cities = setInterval(() => {
+        metricsData.cities += 1;
+        updateMetricDisplay(0, metricsData.cities);
+    }, 60000);
+
+    // Partners: +1 every 30 seconds
+    metricsIntervals.partners = setInterval(() => {
+        metricsData.partners += 1;
+        updateMetricDisplay(1, metricsData.partners);
+    }, 30000);
+
+    // Active Users: +1 every 20 seconds
+    metricsIntervals.users = setInterval(() => {
+        metricsData.users += 1;
+        updateMetricDisplay(2, metricsData.users);
+    }, 20000);
+
+    // Meals Saved: +5 every 10 seconds
+    metricsIntervals.meals = setInterval(() => {
+        metricsData.meals += 5;
+        updateMetricDisplay(3, metricsData.meals);
+    }, 10000);
+
+    // People Fed: +10 every 20 seconds
+    metricsIntervals.people = setInterval(() => {
+        metricsData.people += 10;
+        updateMetricDisplay(4, metricsData.people);
+    }, 20000);
+
+    // Water Saved: +2 litres every 10 seconds
+    metricsIntervals.water = setInterval(() => {
+        metricsData.water += 2;
+        updateMetricDisplay(5, metricsData.water);
+    }, 10000);
+}
+
+function updateMetricDisplay(index, value) {
+    const metricElements = $$('.metric-number');
+    if (metricElements[index]) {
+        // Add a subtle animation effect
+        metricElements[index].style.transform = 'scale(1.1)';
+        metricElements[index].style.color = 'var(--soft-orange)';
+
+        setTimeout(() => {
+            metricElements[index].textContent = value.toLocaleString();
+            metricElements[index].style.transform = 'scale(1)';
+            metricElements[index].style.color = 'var(--primary-green)';
+        }, 200);
+    }
+}
+
+// Initialize metrics on page load
+function initMetricsSystem() {
+    initializeMetrics();
+
+    // Start auto-increment after initial animation
+    setTimeout(() => {
+        startAutoIncrementMetrics();
+    }, 3000); // Wait 3 seconds after page load
+}
 
 // Service Worker registration (for PWA functionality)
 if ('serviceWorker' in navigator) {
