@@ -610,13 +610,31 @@ function updateMetricDisplay(index, value) {
 
 // Initialize metrics on page load
 function initMetricsSystem() {
-    initializeMetrics();
+    try {
+        initializeMetrics();
 
-    // Start auto-increment after initial animation
-    setTimeout(() => {
-        startAutoIncrementMetrics();
-    }, 3000); // Wait 3 seconds after page load
+        // Start auto-increment after initial animation
+        setTimeout(() => {
+            startAutoIncrementMetrics();
+            console.log('Metrics auto-increment started successfully');
+        }, 3000); // Wait 3 seconds after page load
+    } catch (error) {
+        console.error('Error initializing metrics system:', error);
+    }
 }
+
+// Add visibility change handler to pause/resume metrics when tab is not active
+document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+        // Pause intervals when tab is hidden
+        Object.values(metricsIntervals).forEach(interval => clearInterval(interval));
+    } else {
+        // Resume when tab becomes visible again
+        setTimeout(() => {
+            startAutoIncrementMetrics();
+        }, 1000);
+    }
+});
 
 // Service Worker registration (for PWA functionality)
 if ('serviceWorker' in navigator) {
