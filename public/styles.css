@@ -726,7 +726,33 @@ body {
 /* Food Heroes Section */
 .food-heroes-section {
     padding: var(--space-20) 0;
-    background: var(--white);
+    background: linear-gradient(135deg,
+        #ffffff 0%,
+        #f8fffe 30%,
+        #ffffff 60%,
+        #f5f9f5 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.food-heroes-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(ellipse at 30% 20%, rgba(45, 90, 39, 0.02) 40%, transparent 70%),
+        radial-gradient(ellipse at 70% 80%, rgba(127, 176, 105, 0.02) 40%, transparent 70%),
+        linear-gradient(135deg, transparent 40%, rgba(164, 195, 162, 0.02) 50%, transparent 60%),
+        url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23a4c3a2' fill-opacity='0.03'%3E%3Cpath d='M25 5L30 20L45 20L35 30L40 45L25 35L10 45L15 30L5 20L20 20Z'/%3E%3C/g%3E%3C/svg%3E");
+    animation: heroGlow 14s ease-in-out infinite;
+}
+
+@keyframes heroGlow {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.02); }
 }
 
 .heroes-grid {
