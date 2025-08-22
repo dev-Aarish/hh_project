@@ -525,7 +525,34 @@ body {
 /* How It Works Section */
 .how-it-works-section {
     padding: var(--space-20) 0;
-    background: var(--white);
+    background: linear-gradient(135deg,
+        #ffffff 0%,
+        #fafffe 20%,
+        #f5f9f5 50%,
+        #fafffe 80%,
+        #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.how-it-works-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(30deg, transparent 30%, rgba(127, 176, 105, 0.02) 50%, transparent 70%),
+        linear-gradient(-30deg, transparent 30%, rgba(164, 195, 162, 0.02) 50%, transparent 70%),
+        url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%234a7c59' fill-opacity='0.02'%3E%3Ccircle cx='40' cy='40' r='2'/%3E%3Ccircle cx='20' cy='20' r='1'/%3E%3Ccircle cx='60' cy='60' r='1'/%3E%3C/g%3E%3C/svg%3E");
+    animation: gentleFlow 18s ease-in-out infinite;
+}
+
+@keyframes gentleFlow {
+    0%, 100% { transform: translateX(0%) translateY(0%); }
+    33% { transform: translateX(2%) translateY(-1%); }
+    66% { transform: translateX(-1%) translateY(2%); }
 }
 
 .steps-container {
