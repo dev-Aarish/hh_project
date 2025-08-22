@@ -855,7 +855,12 @@ body {
 /* Environmental Impact Section */
 .environmental-section {
     padding: var(--space-20) 0;
-    background: var(--light-gray);
+    background: linear-gradient(135deg,
+        #e8f5e8 0%,
+        #f0f8f0 25%,
+        #f5f9f5 50%,
+        #f0f8f0 75%,
+        #e8f5e8 100%);
     position: relative;
     overflow: hidden;
 }
@@ -866,17 +871,20 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
-        radial-gradient(circle at 20% 30%, rgba(45, 90, 39, 0.1) 2px, transparent 2px),
-        radial-gradient(circle at 70% 60%, rgba(127, 176, 105, 0.1) 1px, transparent 1px),
-        radial-gradient(circle at 50% 80%, rgba(255, 140, 66, 0.1) 3px, transparent 3px);
-    background-size: 100px 100px, 150px 150px, 200px 200px;
-    animation: particleFloat 20s linear infinite;
+    background:
+        radial-gradient(circle at 25% 25%, rgba(45, 90, 39, 0.03) 8px, transparent 8px),
+        radial-gradient(circle at 75% 75%, rgba(127, 176, 105, 0.03) 6px, transparent 6px),
+        radial-gradient(circle at 50% 50%, rgba(164, 195, 162, 0.02) 4px, transparent 4px),
+        linear-gradient(45deg, transparent 48%, rgba(255, 140, 66, 0.01) 50%, transparent 52%),
+        url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%234a7c59' fill-opacity='0.02'%3E%3Cpath d='M20 2A18 18 0 1 1 2 20A18 18 0 0 1 20 2M20 6A14 14 0 1 0 34 20A14 14 0 0 0 20 6'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 150px 150px, 200px 200px, 100px 100px, 300px 300px, 40px 40px;
+    animation: particleFloat 25s ease-in-out infinite;
 }
 
 @keyframes particleFloat {
-    0% { transform: translateY(0) translateX(0); }
-    100% { transform: translateY(-20px) translateX(10px); }
+    0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.6; }
+    33% { transform: translateY(-15px) translateX(8px) rotate(2deg); opacity: 0.8; }
+    66% { transform: translateY(10px) translateX(-5px) rotate(-1deg); opacity: 0.7; }
 }
 
 .impact-formula {
