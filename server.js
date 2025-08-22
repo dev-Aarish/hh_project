@@ -41,9 +41,9 @@ const Test = mongoose.model(
 
 // ---------------------- ROUTES ---------------------- //
 
-// Root check
+// Root route - serve the EcoWaste frontend
 app.get("/", (req, res) => {
-  res.send("🍽 Food Sharing Backend is running...");
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 //  Add new food (donor)
