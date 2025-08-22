@@ -1039,9 +1039,32 @@ body {
 /* Closing CTA Section */
 .closing-cta-section {
     padding: var(--space-20) 0;
-    background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+    background: linear-gradient(135deg,
+        var(--primary-green) 0%,
+        var(--secondary-green) 50%,
+        var(--primary-green) 100%);
     text-align: center;
     color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.closing-cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.05) 50%, transparent 60%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M30 5L35 25L55 25L40 35L45 55L30 45L15 55L20 35L5 25L25 25Z'/%3E%3C/g%3E%3C/svg%3E");
+    animation: ctaGlow 10s ease-in-out infinite;
+}
+
+@keyframes ctaGlow {
+    0%, 100% { opacity: 0.3; transform: translateX(0%); }
+    50% { opacity: 0.6; transform: translateX(2%); }
 }
 
 .cta-title {
