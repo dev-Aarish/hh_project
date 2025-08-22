@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoWaste - Don't Let Food Die Twice</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="contact-info">
+                    <span><i class="fas fa-envelope"></i> hello@ecowaste.org</span>
+                    <span><i class="fas fa-phone"></i> +1 (555) 123-4567</span>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1 class="logo">EcoWaste</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#listings" class="nav-link">Live Listings</a></li>
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="#stories" class="nav-link">Success Stories</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#signup" class="nav-link signup-btn">Sign Up</a></li>
+                    <li><a href="#login" class="nav-link login-btn">Login</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Don't Let Food Die Twice — Feed People, Not Landfills.</h1>
+                <p class="hero-subtitle">Every second, surplus meals go to waste. We make sure they reach hungry hands in real time.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary donor-btn" onclick="openDonorForm()">
+                        <i class="fas fa-heart"></i>
+                        Be a Donor
+                    </button>
+                    <button class="btn btn-secondary receiver-btn" onclick="openReceiverOptions()">
+                        <i class="fas fa-utensils"></i>
+                        Receive Food
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="wave-background"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About EcoWaste</h2>
+                <p class="section-description">
+                    EcoWaste is a platform connecting restaurants, grocery stores, bakeries, and individuals with people in need. 
+                    Together, we're building a world where no meal goes to waste while hunger still exists.
+                </p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sustainability</h3>
+                    <p>Reducing food waste to protect our planet for future generations.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community</h3>
+                    <p>Building bridges between those who have surplus and those in need.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Real-Time</h3>
+                    <p>Instant notifications ensure fresh food reaches recipients quickly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Metrics Section -->
+    <section class="impact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Impact</h2>
+                <p class="section-description">Making a difference, one meal at a time</p>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <div class="metric-number" data-target="0">0</div>
+                    <div class="metric-label">Cities</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="metric-number" data-target="0">0</div>
+                    <div class="metric-label">Partners</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="metric-number" data-target="0">0</div>
+                    <div class="metric-label">Active Users</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="metric-number" data-target="0">0</div>
+                    <div class="metric-label">Meals Saved</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="metric-number" data-target="0">0</div>
+                    <div class="metric-label">People Fed</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <div class="metric-number" data-target="0">0</div>
+                    <div class="metric-label">Water Saved (L)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="features" class="how-it-works-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-description">Simple steps to make a big difference</p>
+            </div>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <h3>Donor Posts Surplus Food</h3>
+                    <p>Restaurants, stores, and individuals post available surplus food with details and pickup location.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>System Notifies Recipients</h3>
+                    <p>Our platform instantly notifies nearby recipients about available food matching their preferences.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Recipient Claims and Picks Up</h3>
+                    <p>Recipients claim the food and coordinate pickup, ensuring fresh meals reach those who need them.</p>
+                </div>
+            </div>
+            <div class="demo-button-container">
+                <button class="btn btn-outline">
+                    <i class="fas fa-play"></i>
+                    Try a Live Demo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Listings Section -->
+    <section id="listings" class="live-listings-section">
+        <div class="gradient-background"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Live Food Listings</h2>
+                <p class="section-description">Fresh opportunities to make a difference</p>
+            </div>
+            <div class="listings-grid">
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <i class="fas fa-bread-slice"></i>
+                    </div>
+                    <div class="listing-content">
+                        <h3>Fresh Bread</h3>
+                        <p class="listing-location"><i class="fas fa-map-marker-alt"></i> Downtown Bakery</p>
+                        <p class="listing-expiry"><i class="fas fa-clock"></i> Expires in 2 hours</p>
+                        <p class="listing-quantity">15 loaves available</p>
+                    </div>
+                    <button class="btn btn-small btn-primary">Claim Now</button>
+                </div>
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="listing-content">
+                        <h3>Rice Packets</h3>
+                        <p class="listing-location"><i class="fas fa-map-marker-alt"></i> Community Center</p>
+                        <p class="listing-expiry"><i class="fas fa-clock"></i> Expires in 1 day</p>
+                        <p class="listing-quantity">50 packets available</p>
+                    </div>
+                    <button class="btn btn-small btn-primary">Claim Now</button>
+                </div>
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="listing-content">
+                        <h3>Mixed Salads</h3>
+                        <p class="listing-location"><i class="fas fa-map-marker-alt"></i> Fresh Market</p>
+                        <p class="listing-expiry"><i class="fas fa-clock"></i> Expires in 4 hours</p>
+                        <p class="listing-quantity">25 portions available</p>
+                    </div>
+                    <button class="btn btn-small btn-primary">Claim Now</button>
+                </div>
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="listing-content">
+                        <h3>Cooked Meals</h3>
+                        <p class="listing-location"><i class="fas fa-map-marker-alt"></i> Restaurant Plaza</p>
+                        <p class="listing-expiry"><i class="fas fa-clock"></i> Expires in 3 hours</p>
+                        <p class="listing-quantity">20 portions available</p>
+                    </div>
+                    <button class="btn btn-small btn-primary">Claim Now</button>
+                </div>
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <i class="fas fa-carrot"></i>
+                    </div>
+                    <div class="listing-content">
+                        <h3>Vegetable Packs</h3>
+                        <p class="listing-location"><i class="fas fa-map-marker-alt"></i> Farmer's Market</p>
+                        <p class="listing-expiry"><i class="fas fa-clock"></i> Expires in 6 hours</p>
+                        <p class="listing-quantity">30 packs available</p>
+                    </div>
+                    <button class="btn btn-small btn-primary">Claim Now</button>
+                </div>
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <i class="fas fa-sandwich"></i>
+                    </div>
+                    <div class="listing-content">
+                        <h3>Sandwich Trays</h3>
+                        <p class="listing-location"><i class="fas fa-map-marker-alt"></i> Café Corner</p>
+                        <p class="listing-expiry"><i class="fas fa-clock"></i> Expires in 5 hours</p>
+                        <p class="listing-quantity">8 trays available</p>
+                    </div>
+                    <button class="btn btn-small btn-primary">Claim Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Food Heroes Section -->
+    <section class="food-heroes-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Meet Our Food Heroes</h2>
+                <p class="section-description">Champions making a difference in their communities</p>
+            </div>
+            <div class="heroes-grid">
+                <div class="hero-card">
+                    <div class="hero-glow"></div>
+                    <div class="hero-avatar">
+                        <i class="fas fa-chef-hat"></i>
+                    </div>
+                    <div class="hero-content">
+                        <h3>Chef Paul</h3>
+                        <p class="hero-title">Restaurant Owner</p>
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <span class="stat-number">2,450</span>
+                                <span class="stat-label">Meals Saved</span>
+                            </div>
+                        </div>
+                        <p class="hero-quote">"Every meal we save is a step towards a better world."</p>
+                    </div>
+                </div>
+                <div class="hero-card">
+                    <div class="hero-glow"></div>
+                    <div class="hero-avatar">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="hero-content">
+                        <h3>Green Grocers</h3>
+                        <p class="hero-title">Grocery Chain</p>
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <span class="stat-number">5,200</span>
+                                <span class="stat-label">Meals Saved</span>
+                            </div>
+                        </div>
+                        <p class="hero-quote">"Sustainability starts with small actions that create big impacts."</p>
+                    </div>
+                </div>
+                <div class="hero-card">
+                    <div class="hero-glow"></div>
+                    <div class="hero-avatar">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="hero-content">
+                        <h3>SchoolX Canteen</h3>
+                        <p class="hero-title">Educational Institution</p>
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <span class="stat-number">1,800</span>
+                                <span class="stat-label">Meals Saved</span>
+                            </div>
+                        </div>
+                        <p class="hero-quote">"Teaching students about sustainability through action."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Environmental Impact Section -->
+    <section class="environmental-section">
+        <div class="earth-particles"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Environmental Impact</h2>
+                <p class="impact-formula">1 kg food saved = 2.5 kg CO₂ prevented</p>
+            </div>
+            <div class="sdg-grid">
+                <div class="sdg-card">
+                    <div class="sdg-icon sdg-2">
+                        <span class="sdg-number">2</span>
+                    </div>
+                    <h3>Zero Hunger</h3>
+                    <p>Reduce hunger by redistributing surplus food to those who need it most.</p>
+                </div>
+                <div class="sdg-card">
+                    <div class="sdg-icon sdg-12">
+                        <span class="sdg-number">12</span>
+                    </div>
+                    <h3>Responsible Consumption</h3>
+                    <p>Promote sustainable food use and reduce waste in our communities.</p>
+                </div>
+                <div class="sdg-card">
+                    <div class="sdg-icon sdg-13">
+                        <span class="sdg-number">13</span>
+                    </div>
+                    <h3>Climate Action</h3>
+                    <p>Reduce greenhouse gas emissions from food waste and landfills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section id="stories" class="success-stories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Success Stories</h2>
+                <p class="section-description">Real impact from real partnerships</p>
+            </div>
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-icon">
+                        <i class="fas fa-bread-slice"></i>
+                    </div>
+                    <div class="story-content">
+                        <h3>Local Bakery Transformation</h3>
+                        <div class="story-stat">70% waste reduction</div>
+                        <p>A local bakery partnered with us to redistribute daily surplus bread and pastries, successfully feeding 1,200 people while cutting their waste by 70%.</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <div class="story-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="story-content">
+                        <h3>Restaurant Chain Impact</h3>
+                        <div class="story-stat">10,000 meals saved</div>
+                        <p>A major restaurant chain committed to donating daily surplus meals, saving over 10,000 meals from waste and feeding families across the city.</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <div class="story-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="story-content">
+                        <h3>School Cafeteria Program</h3>
+                        <div class="story-stat">800 students monthly</div>
+                        <p>A school cafeteria now redistributes leftover healthy meals to students in need, ensuring 800 students receive nutritious food every month.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing CTA Section -->
+    <section class="closing-cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Every meal you save writes a story of hope.</h2>
+                <button class="btn btn-large btn-primary">
+                    <i class="fas fa-heart"></i>
+                    Be Part of the Change
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="leaf-pattern"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-brand">EcoWaste</h3>
+                    <p class="footer-tagline">Connecting surplus food with hungry hands, one meal at a time.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#features">How It Works</a></li>
+                        <li><a href="#stories">Success Stories</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Take Action</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="openDonorForm()">Donate Food</a></li>
+                        <li><a href="#" onclick="openReceiverOptions()">Find Food</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Partner With Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-details">
+                        <p><i class="fas fa-envelope"></i> hello@ecowaste.org</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Green Street, Eco City, EC 12345</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 EcoWaste. All rights reserved. | Building a sustainable future together.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- Donor Form Modal -->
+    <div id="donorModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Donate Food</h2>
+                <span class="close" onclick="closeDonorForm()">&times;</span>
+            </div>
+            <form id="donorForm" class="donor-form">
+                <div class="form-group">
+                    <label for="foodQuantity">Quantity of food? *</label>
+                    <input type="text" id="foodQuantity" name="quantity" required placeholder="e.g., 20 portions, 5kg, 10 items">
+                </div>
+                <div class="form-group">
+                    <label for="foodQuality">Quality of food? *</label>
+                    <select id="foodQuality" name="quality" required>
+                        <option value="">Select quality</option>
+                        <option value="fresh">Fresh</option>
+                        <option value="good">Good</option>
+                        <option value="edible">Edible</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="foodImage">Upload a picture to show condition of food *</label>
+                    <input type="file" id="foodImage" name="image" accept="image/*" required>
+                    <div class="file-upload-hint">Please upload a clear photo showing the food condition</div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeDonorForm()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit Donation</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Receiver Options Modal -->
+    <div id="receiverModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Receive Food</h2>
+                <span class="close" onclick="closeReceiverOptions()">&times;</span>
+            </div>
+            <div class="receiver-options">
+                <div class="option-card" onclick="selectFoodType('cooked')">
+                    <div class="option-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Soon to be Expired</h3>
+                    <p>(Cooked Foods)</p>
+                    <div class="option-description">Ready-to-eat meals that need to be consumed quickly</div>
+                </div>
+                <div class="option-card" onclick="selectFoodType('groceries')">
+                    <div class="option-icon">
+                        <i class="fas fa-shopping-basket"></i>
+                    </div>
+                    <h3>General Groceries</h3>
+                    <p>(Uncooked Foods)</p>
+                    <div class="option-description">Raw ingredients and packaged foods for home cooking</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
