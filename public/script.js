@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initFormHandling();
     initScrollEffects();
     initMobileMenu();
+    initMetricsSystem();
 });
 
 // Navigation functionality
